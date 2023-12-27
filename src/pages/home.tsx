@@ -22,6 +22,7 @@ interface Meal {
 const Home: React.FC = () => {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [search, setSearch] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [selectedIngredient, setSelectedIngredient] = useState('');
   const [meals, setMeals] = useState<Meal[]>([]);
   const ingredientListRef = useRef<HTMLDivElement>(null);
@@ -32,6 +33,7 @@ const Home: React.FC = () => {
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+    setSearchValue(e.target.value);
   }
 
   const handleSelectIngredient = (ingredient: string) => {
@@ -41,6 +43,7 @@ const Home: React.FC = () => {
 
   const handleClear = () => {
     setSearch('');
+    setSearchValue('');
     setSelectedIngredient('');
     setMeals([]);
   }
@@ -87,7 +90,7 @@ const Home: React.FC = () => {
           <TextField.Slot>
             <MagnifyingGlassIcon height="16" width="16" />
           </TextField.Slot>
-          <TextField.Input placeholder="Search for an ingredient..." onChange={handleSearch} value={search} />
+          <TextField.Input placeholder="Search for an ingredient..." onChange={handleSearch} value={searchValue}/>
         </TextField.Root>
         {search.length > 0 && (
           <div ref={ingredientListRef} className='w-full max-h-60 h-fit overflow-x-scroll noscrollbar rounded border border-secondary divide-y divide-secondary absolute top-[40px] z-20 bg-white dark:bg-black'>
