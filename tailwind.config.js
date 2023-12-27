@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: '#ec4e20',
+        secondary: '#ff9505',
+        black: '#1a1a1a',
+        white: '#f9f9f9',
+      },
       maxWidth: {
         default: '1280px',
       },

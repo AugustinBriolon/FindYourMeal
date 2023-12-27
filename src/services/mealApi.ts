@@ -4,7 +4,7 @@ const BASE_URL = `https://www.themealdb.com/api/json/v2/${API_KEY}/`;
 export async function  getAllIngredients () {
   const response = await fetch(`${BASE_URL}list.php?i=list`);
   const data = await response.json();
-  return data;
+  return data.meals;
 }
 
 export async function getMeals(meal: string) {
@@ -16,7 +16,7 @@ export async function getMeals(meal: string) {
 export async function  getMealByIngredient(ingredient: string) {
   const response = await fetch(`${BASE_URL}filter.php?i=${ingredient}`);
   const data = await response.json();
-  return data;
+  return data.meals;
 }
 
 export async function  getIngredient() {

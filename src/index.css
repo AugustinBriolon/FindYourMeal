@@ -5,7 +5,18 @@
 :root {
   --color-primary: #ec4e20;
   --color-secondary: #ff9505;
+  --color-white: #f9f9f9; 
+  --color-black: #1a1a1a;
 }
+
+body {
+  background-color: var(--color-white);
+}
+
+.dark body {
+  background-color: var(--color-black);
+}
+
 
 .title3d {
   text-transform: uppercase;
@@ -15,4 +26,28 @@
     1px 4px 1px var(--color-secondary), 1px 5px 1px var(--color-secondary),
     1px 6px 1px var(--color-secondary), 1px 7px 1px var(--color-secondary),
     1px 8px 1px var(--color-secondary);
+}
+
+.noscrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-in {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-primary);
+  transform-origin: bottom;
+}
+
+.slide-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-primary);
+  transform-origin: top;
 }
