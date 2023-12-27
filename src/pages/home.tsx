@@ -18,9 +18,10 @@ export default function Home() {
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [search, setSearch] = useState('');
 
-  const filteredIngredients = ingredients.filter((ingredient) => {
-    return ingredient.strIngredient.toLowerCase().startsWith(search.toLowerCase());
-  });
+  const filteredIngredients = search.length > 0
+    ? ingredients.filter((ingredient) => ingredient.strIngredient.toLowerCase().startsWith(search.toLowerCase()))
+    : [];
+
 
   console.log(filteredIngredients);
 
@@ -41,17 +42,20 @@ export default function Home() {
           </TextField.Slot>
           <TextField.Input placeholder="Search for an ingredient..." onChange={(e) => setSearch(e.target.value)} />
         </TextField.Root>
-        <div className='w-full h-60 overflow-x-scroll rounded border border-slate-300 border-t-0 divide-y'>
-          {
-            filteredIngredients.map((ingredient) => {
-              return (
-                <div key={ingredient.idIngredient} className='text-center py-4'>
-                  <p className="">{ingredient.strIngredient}</p>
-                </div>
-              )
-            })
-          }
-        </div>
+        {search.length > 0 && (
+          <div className='w-full max-h-60 h-fit overflow-x-scroll rounded border border-slate-300 border-t-0 divide-y'>
+            {
+              filteredIngredients.map((ingredient) => {
+                return (
+                  <div key={ingredient.idIngredient} className='text-center py-4'>
+                    <p className="">{ingredient.strIngredient}</p>
+                  </div>
+                )
+              })
+            }
+          </div>
+        )}
+
       </div>
     </div>
   );
