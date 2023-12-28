@@ -12,7 +12,7 @@ export default function Header() {
   }
 
   return (
-    <header className='grid grid-cols-header w-full p-4 border-b'>
+    <header className='grid grid-cols-2  sm:grid-cols-header w-full p-4 border-b'>
       <Link className="flex items-center justify-center space-x-2" to="/">
         <img src="/favicon/favicon.ico" alt="Logo d'un cerveau vu du haut" className="h-8" />
         <Heading as="h1" size="5">Get your Meal</Heading>

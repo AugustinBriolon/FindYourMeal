@@ -33,9 +33,9 @@ export default function App() {
       <Routes location={location} key={location.pathname} >
         <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-          <Route path="/:meal" element={<Meal />} />
-          <Route path="/area" element={<Area />} />
-          <Route path="/category" element={<Category />} />
+          <Route path="/meal/:meal" element={<Meal />} />
+          <Route path="/area/:area" element={<Area />} />
+          <Route path="/category/:category" element={<Category />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

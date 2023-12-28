@@ -81,7 +81,7 @@ const Home: React.FC = () => {
   }, [meals]);
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen-header w-full space-y-4 p-4 relative">
+    <div className="flex flex-col items-center justify-start h-screen-header w-full space-y-4 p-4 pt-12 relative">
       <button onClick={handleClear}>
         <Heading className="title3d text-6xl text-center">Get your meal</Heading>
       </button>
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
           <div className='w-full max-h-dvh overflow-x-scroll noscrollbar flex flex-wrap gap-2 justify-center'>
             {
               meals.map((meal) => (
-                <Link to={`/${meal.strMeal}`} key={meal.idMeal}>
+                <Link to={`/meal/${meal.strMeal}`} key={meal.idMeal}>
                   <Card size="2" style={{ width: 240 }}>
                     <Inset clip="padding-box" side="top" pb="current">
                       <img

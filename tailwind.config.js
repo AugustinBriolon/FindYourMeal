@@ -29,6 +29,7 @@ export default {
       },
       gridTemplateColumns: {
         'header': '170px 1fr 170px',
+        'list': 'repeat(auto-fill, minmax(200px, 1fr))',
       },
     },
   },
