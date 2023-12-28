@@ -92,7 +92,7 @@ const Home: React.FC = () => {
           <TextField.Input placeholder="Search for an ingredient..." onChange={handleSearch} value={searchValue} />
         </TextField.Root>
         {search.length > 0 && (
-          <div ref={ingredientListRef} className='w-full max-h-60 h-fit overflow-x-scroll noscrollbar bg-white dark:bg-black rounded border border-secondary divide-y divide-secondary absolute top-[40px] z-20'>
+          <div ref={ingredientListRef} className='w-full max-h-60 h-fit overflow-x-scroll noscrollbarrounded border border-secondary divide-y divide-secondary absolute top-[40px] z-20'>
             {filteredIngredients.length === 0 && (
               <div className='text-center text-primary py-2'>
                 <p className="">No ingredients found</p>

@@ -9,22 +9,6 @@
   --color-black: #1a1a1a;
 }
 
-body {
-  background-color: var(--color-white);
-}
-
-.dark body {
-  background-color: var(--color-black);
-}
-
-.h1 {
-  color: var(--color-black);
-}
-
-.dark .h1 {
-  color: var(--color-white);
-}
-
 
 .title3d {
   text-transform: uppercase;
