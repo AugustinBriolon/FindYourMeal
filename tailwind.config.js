@@ -9,6 +9,8 @@ export default {
       colors: {
         primary: '#ec4e20',
         secondary: '#ff9505',
+        tertiary: '#fcf0dc',
+        orange: '#382717',
         black: '#1a1a1a',
         white: '#f9f9f9',
       },
@@ -16,14 +18,17 @@ export default {
         default: '1280px',
       },
       height: {
-        'screen-header': 'calc(100vh - 90px)',
+        'screen-header': 'calc(100vh - 75px)',
       },
       minHeight: {
-        'screen-header': 'calc(100vh - 90px)',
+        'screen-header': 'calc(100vh - 75px)',
       },
       borderRadius: {
         small: '8px',
         medium: '18px',
+      },
+      gridTemplateColumns: {
+        'header': '170px 1fr 170px',
       },
     },
   },

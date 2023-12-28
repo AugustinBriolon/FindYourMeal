@@ -9,7 +9,9 @@ import { AnimatePresence } from "framer-motion";
 import "./index.css";
 import Header from "./components/Header";
 import Home from "./pages/home";
-import Test from "./pages/test";
+import Meal from "./pages/meal";
+import Area from "./pages/area";
+import Category from "./pages/category";
 import ErrorPage from "./error-page";
 
 
@@ -19,7 +21,7 @@ export default function App() {
 
   const Layout = () => {
     return (
-      <div className="max-w-default">
+      <div className="max-w-default mx-auto">
         <Header />
         <Outlet />
       </div>
@@ -29,9 +31,11 @@ export default function App() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname} >
-        <Route index element={<Home />} />
         <Route path="/" element={<Layout />}>
-          <Route path="/test" element={<Test />} />
+        <Route index element={<Home />} />
+          <Route path="/:meal" element={<Meal />} />
+          <Route path="/area" element={<Area />} />
+          <Route path="/category" element={<Category />} />
         </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>

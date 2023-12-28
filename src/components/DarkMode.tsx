@@ -10,13 +10,11 @@ export default function DarkMode() {
     setDarkMode(!darkMode);
   }
 
-  const icon = darkMode ? <SunIcon className="w-auto h-18 fill-black" /> : <MoonIcon className="w-auto h-18 fill-black" />;
+  const icon = darkMode ? <SunIcon className="w-auto h-18" color="#ec4e20" /> : <MoonIcon className="w-auto h-18" color="#ec4e20" />;
 
   return (
-    <div className="absolute top-4 right-4">
-      <IconButton variant="ghost" onClick={handleDarkMode}>
-        {icon}
-      </IconButton>
-    </div>
+    <IconButton variant="ghost" onClick={handleDarkMode} className="hover:bg-inherit">
+      {icon}
+    </IconButton>
   )
 }
