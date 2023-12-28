@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Heading, Box, Tabs, Button } from "@radix-ui/themes";
@@ -22,6 +20,7 @@ interface Meal {
 function Meal() {
   const [isLoading, setIsLoading] = useState(true);
   const { meal } = useParams<{ meal: string }>();
+
   const [mealData, setMealtData] = useState<Meal>({
     idMeal: "",
     strMeal: "",
@@ -56,7 +55,7 @@ function Meal() {
 
   const formatIngredients = (ingredients: string[], measure: string[]) => {
     return ingredients.map((ingredient, index) => (
-      <li key={ingredient.toString()} className="capitalize">
+      <li key={index} className="capitalize">
         <p className="font-bold">{ingredient}</p>
         <p className="text-gray-500">{measure[index]}</p>
       </li>
@@ -78,7 +77,7 @@ function Meal() {
   }, [meal]);
 
   return (
-    <>
+    <section>
       {isLoading ? (
         <div>...Loading</div>
       ) : (
@@ -148,7 +147,7 @@ function Meal() {
           </div>
         </div>
       )}
-    </>
+    </section>
   )
 }
 

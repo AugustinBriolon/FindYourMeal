@@ -32,7 +32,7 @@ export default function App() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname} >
         <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="/meal/:meal" element={<Meal />} />
           <Route path="/area/:area" element={<Area />} />
           <Route path="/category/:category" element={<Category />} />

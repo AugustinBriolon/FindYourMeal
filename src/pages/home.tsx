@@ -81,7 +81,7 @@ const Home: React.FC = () => {
   }, [meals]);
 
   return (
-    <div className="flex flex-col items-center justify-start h-screen-header w-full space-y-4 p-4 pt-12 relative">
+    <section className="flex flex-col items-center justify-start h-screen-header w-full space-y-4 p-4 pt-12 relative">
       <button onClick={handleClear}>
         <Heading className="title3d text-6xl text-center">Get your meal</Heading>
       </button>
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
       </div>
       {
         selectedIngredient && (
-          <div className='w-full max-h-dvh overflow-x-scroll noscrollbar flex flex-wrap gap-2 justify-center'>
+          <div className='w-full overflow-x-scroll noscrollbar flex flex-wrap gap-2 justify-center'>
             {
               meals.map((meal) => (
                 <Link to={`/meal/${meal.strMeal}`} key={meal.idMeal}>
@@ -121,7 +121,7 @@ const Home: React.FC = () => {
                         className='block object-cover w-full h-full max-h-40'
                       />
                     </Inset>
-                    <Text as="p" size="3">
+                    <Text as="p" size="3" className="truncate">
                       <Strong>{meal.strMeal}</Strong>
                     </Text>
                   </Card>
@@ -131,7 +131,7 @@ const Home: React.FC = () => {
           </div>
         )
       }
-    </div>
+    </section>
   );
 }
 

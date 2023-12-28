@@ -19,6 +19,7 @@ export default {
       },
       height: {
         'screen-header': 'calc(100vh - 75px)',
+        'list-header': 'calc(100vh - 120px)',
       },
       minHeight: {
         'screen-header': 'calc(100vh - 75px)',
@@ -29,6 +30,7 @@ export default {
       },
       gridTemplateColumns: {
         'header': '170px 1fr 170px',
+        'items': 'repeat(auto-fill, minmax(100px, 1fr))',
         'list': 'repeat(auto-fill, minmax(200px, 1fr))',
       },
     },
