@@ -22,7 +22,6 @@ function area() {
     getAreaByName(area!).then((data) => {
       setAreaData(data);
       setIsLoading(false);
-      console.log(data);
     });
   }, [area]);
 

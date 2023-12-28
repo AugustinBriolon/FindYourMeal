@@ -77,7 +77,6 @@ const Home: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    console.log(meals);
   }, [meals]);
 
   return (

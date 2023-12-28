@@ -17,6 +17,14 @@ body {
   background-color: var(--color-black);
 }
 
+.h1 {
+  color: var(--color-black);
+}
+
+.dark .h1 {
+  color: var(--color-white);
+}
+
 
 .title3d {
   text-transform: uppercase;

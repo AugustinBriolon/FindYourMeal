@@ -72,7 +72,6 @@ function Meal() {
     getMeals(meal!).then((data) => {
       setMealtData(data[0]);
       setIsLoading(false);
-      console.log(data[0]);
     });
   }, [meal]);
 
