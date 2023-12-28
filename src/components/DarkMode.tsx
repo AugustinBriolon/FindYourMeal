@@ -4,15 +4,19 @@ import { useState, useEffect } from "react";
 
 export default function DarkMode() {
   const [darkMode, setDarkMode] = useState(false);
-  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+  const prefersDarkMode = localStorage.getItem('darkMode') === 'true';
+  
   const handleDarkMode = () => {
     setDarkMode(!darkMode);
     document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', JSON.stringify(!darkMode));
   }
 
-  useEffect(() => {
-    setDarkMode(prefersDarkMode);
+  useEffect(() => { 
+    if (prefersDarkMode) {
+      setDarkMode(true);
+      document.body.classList.add('dark');
+    }
   }, [prefersDarkMode]);
 
   const icon = darkMode ? <SunIcon className="w-auto h-18" color="#ec4e20" /> : <MoonIcon className="w-auto h-18" color="#ec4e20" />;
