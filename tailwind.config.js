@@ -31,8 +31,9 @@ export default {
       gridTemplateColumns: {
         'header': '170px 1fr 170px',
         'items': 'repeat(auto-fill, minmax(100px, 1fr))',
-        'list': 'repeat(auto-fill, minmax(200px, 1fr))',
+        'list': 'repeat(auto-fill, minmax(150px, 1fr))',
       },
+      darkMode: 'class',
     },
   },
   plugins: [],

@@ -13,7 +13,7 @@ export default function DropDownMenu<T>({ name, items, label }: DropDownMenuProp
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <Button variant="soft" className="text-primary p-0">
+        <Button variant="soft" className="text-primary hover:text-secondary  p-0 text-base">
           {name}
           <CaretDownIcon />
         </Button>
@@ -23,7 +23,7 @@ export default function DropDownMenu<T>({ name, items, label }: DropDownMenuProp
           {items.map((item, index) => (
             //   {item[label] as ReactNode} 
             <Link key={index} to={`/${name}/${item[label]}`}>
-              <DropdownMenu.Item className="hover:bg-tertiary hover:text-primary">
+              <DropdownMenu.Item className="hover:bg-tertiary hover:text-primary ">
                 {item[label] as ReactNode}
               </DropdownMenu.Item>
             </Link>

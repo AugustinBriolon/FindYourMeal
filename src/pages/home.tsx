@@ -20,6 +20,8 @@ interface Meal {
 }
 
 const Home: React.FC = () => {
+  const [isIngredientLoading, setIsIngredientLoading] = useState(true);
+  const [isMealLoading, setIsMealLoading] = useState(true);
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [search, setSearch] = useState('');
   const [searchValue, setSearchValue] = useState('');
@@ -58,6 +60,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     getAllIngredients().then((data) => {
       setIngredients(data);
+      setIsIngredientLoading(false);
     });
   }, []);
 
@@ -65,6 +68,7 @@ const Home: React.FC = () => {
     if (selectedIngredient) {
       getMealByIngredient(selectedIngredient).then((data) => {
         setMeals(data);
+        setIsMealLoading(false);
       });
     }
   }, [selectedIngredient]);
@@ -80,7 +84,7 @@ const Home: React.FC = () => {
   }, [meals]);
 
   return (
-    <section className="flex flex-col items-center justify-start h-screen-header w-full space-y-4 p-4 pt-12 relative">
+    <section className="flex flex-col items-center justify-start sm:h-screen-header h-list-header w-full space-y-4 p-4 pt-12 relative">
       <button onClick={handleClear}>
         <Heading className="title3d text-6xl text-center">Get your meal</Heading>
       </button>
@@ -92,24 +96,51 @@ const Home: React.FC = () => {
           <TextField.Input placeholder="Search for an ingredient..." onChange={handleSearch} value={searchValue} />
         </TextField.Root>
         {search.length > 0 && (
-          <div ref={ingredientListRef} className='w-full max-h-60 h-fit overflow-x-scroll noscrollbar rounded border border-secondary divide-y divide-secondary absolute top-[40px] z-20'>
-            {filteredIngredients.length === 0 && (
-              <div className='text-center text-primary py-2'>
-                <p className="">No ingredients found</p>
+          <div
+            ref={ingredientListRef}
+            className="bg-white dark:!bg-black w-full max-h-60 h-fit overflow-x-scroll noscrollbar rounded border border-secondary divide-y divide-secondary absolute top-[40px] z-20"
+          >
+            {isIngredientLoading ? (
+              <div className="text-center text-primary py-2">
+                <p>Ingredient pending...</p>
               </div>
+            ) : filteredIngredients.length === 0 ? (
+              <div className="text-center text-primary py-2">
+                <p>No ingredients found</p>
+              </div>
+            ) : (
+              filteredIngredients.map((ingredient) => (
+                <div
+                  key={ingredient.idIngredient}
+                  className="text-center text-primary dark:text-secondary py-2 hover:bg-tertiary dark:hover:bg-orange cursor-pointer"
+                  onClick={() => handleSelectIngredient(ingredient.strIngredient)}
+                >
+                  <p>{ingredient.strIngredient}</p>
+                </div>
+              ))
             )}
-            {filteredIngredients.map((ingredient) => (
-              <div key={ingredient.idIngredient} className='text-center text-primary py-2 hover:bg-tertiary' onClick={() => handleSelectIngredient(ingredient.strIngredient)}>
-                <p className="">{ingredient.strIngredient}</p>
-              </div>
-            ))}
           </div>
         )}
+
       </div>
       {
         selectedIngredient && (
           <div className='w-full overflow-x-scroll noscrollbar flex flex-wrap gap-2 justify-center'>
-            {
+            {isMealLoading ? (
+              Array.from(Array(10).keys()).map((_, index) => (
+                <Card key={index} size="2" style={{ width: 240 }}>
+                  <Inset clip="padding-box" side="top" pb="current">
+                    <div className="animate-pulse bg-gray-300 rounded h-40 w-full"></div>
+                  </Inset>
+                  <Text as="p" size="3" className="truncate animate-pulse bg-gray-300 rounded h-4 w-full">
+                  </Text>
+                </Card>
+              ))
+            ) : meals.length === 0 ? (
+              <div className="text-center text-primary py-2">
+                <p>No meals found</p>
+              </div>
+            ) : (
               meals.map((meal) => (
                 <Link to={`/meal/${meal.strMeal}`} key={meal.idMeal}>
                   <Card size="2" style={{ width: 240 }}>
@@ -126,10 +157,11 @@ const Home: React.FC = () => {
                   </Card>
                 </Link>
               ))
-            }
+            )}
           </div>
         )
       }
+
     </section>
   );
 }

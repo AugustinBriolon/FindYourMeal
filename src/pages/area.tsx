@@ -26,11 +26,27 @@ function area() {
   }, [area]);
 
   return (
-    <section className="flex flex-col h-screen-header p-4 space-y-4">
+    <section className="flex flex-col sm:h-screen-header h-list-header p-4 space-y-4">
       {isLoading ? (
-        <div className="flex justify-center items-center h-screen">
-          <p>Loading...</p>
-        </div>
+        <>
+          <Heading className="title3d text-6xl text-start">
+            Area Loading
+          </Heading>
+
+          <div className='w-full overflow-x-scroll noscrollbar flex flex-wrap gap-2 justify-center'>
+            {
+              Array.from(Array(10).keys()).map((_, index) => (
+                <Card key={index} size="2" style={{ width: 240 }}>
+                  <Inset clip="padding-box" side="top" pb="current">
+                    <div className="animate-pulse bg-gray-300 rounded h-40 w-full"></div>
+                  </Inset>
+                  <Text as="p" size="3" className="truncate animate-pulse bg-gray-300 rounded h-4 w-full">
+                  </Text>
+                </Card>
+              ))
+            }
+          </div>
+        </>
       ) : (
         <>
           <Heading className="title3d text-6xl text-start">

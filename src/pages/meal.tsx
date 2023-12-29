@@ -78,7 +78,73 @@ function Meal() {
   return (
     <section>
       {isLoading ? (
-        <div>...Loading</div>
+        <div className="p-4 pt-12 space-y-12">
+          <Heading className="title3d text-6xl text-start">
+            Meal Loading
+          </Heading>
+          <div className="flex flex-col justify-center items-center space-y-4">
+            <div className="w-full flex flex-col md:flex-row items-start justify-center space-y-4 md:space-y-0 md:space-x-4">
+              <div className="w-1/2 md:w-1/4 aspect-square rounded-md animate-pulse bg-gray-300"></div>
+              <div className="space-y-4 w-3/4">
+                <h2 className="text-2xl">Ingredients List</h2>
+                <ul className="grid grid-cols-items sm:grid-cols-list gap-2">
+                  {
+                    Array.from(Array(10).keys()).map((_, index) => (
+                      <li key={index} className="space-y-2">
+                        <p className="font-bold animate-pulse bg-gray-300 rounded h-4 w-full"></p>
+                        <p className="text-gray-500 animate-pulse bg-gray-300 rounded h-4 w-1/2"></p>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+            <div className="w-full md:mr-4">
+              <Tabs.Root defaultValue="instruction">
+                <Tabs.List>
+                  <Tabs.Trigger value="instruction">Instruction</Tabs.Trigger>
+                  <Tabs.Trigger value="tuto">Tuto</Tabs.Trigger>
+                  <Tabs.Trigger value="extra">Extra</Tabs.Trigger>
+                </Tabs.List>
+
+                <Box px="4" pt="3" pb="2">
+                  <Tabs.Content value="instruction">
+                    <div className="space-y-4">
+                      <h2 className="text-2xl">Instructions :</h2>
+                      <div className="space-y-2">
+                        {
+                          Array.from(Array(5).keys()).map((_, index) => (
+                            <>
+                              <p key={index} className="animate-pulse bg-gray-300 rounded h-4 w-3/4"></p>
+                              <p key={index} className="animate-pulse bg-gray-300 rounded h-4 w-1/2"></p>
+                            </>
+                          ))
+                        }
+                      </div>
+                    </div>
+                  </Tabs.Content>
+
+                  <Tabs.Content value="tuto">
+                    <div className="space-y-4">
+                      <h2 className="text-2xl">Tuto :</h2>
+                      <div className="aspect-video animate-pulse bg-gray-300 rounded h-96 w-full"></div>
+                    </div>
+                  </Tabs.Content>
+
+                  <Tabs.Content value="extra">
+                    <div className="space-y-4">
+                      <h2 className="text-2xl">Extra :</h2>
+                      <div className="space-x-2 flex">
+                        <Button className="bg-primary text-white hover:bg-secondary animate-pulse rounded h-6 w-24"></Button>
+                        <Button className="bg-primary text-white hover:bg-secondary animate-pulse rounded h-6 w-24"></Button>
+                      </div>
+                    </div>
+                  </Tabs.Content>
+                </Box>
+              </Tabs.Root>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="p-4 pt-12 space-y-12">
           <Heading className="title3d text-6xl text-start">
@@ -89,7 +155,7 @@ function Meal() {
               <img src={mealData.strMealThumb} alt={mealData.strMeal} className="w-1/2 md:w-1/4 rounded-md" />
               <div className="space-y-4 w-3/4">
                 <h2 className="text-2xl">Ingredients List</h2>
-                <ul className="grid grid-cols-list gap-2">
+                <ul className="grid grid-cols-items sm:grid-cols-list gap-2">
                   {formatIngredients(getIngredients(mealData) as string[], getMeasure(mealData) as string[])}
                 </ul>
               </div>
@@ -120,8 +186,8 @@ function Meal() {
                     <Tabs.Content value="tuto">
                       <div className="space-y-4">
                         <h2 className="text-2xl">Tuto :</h2>
-                        <div className="space-y-2">
-                          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${mealData.strYoutube.slice(-11)}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        <div className="aspect-video">
+                          <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${mealData.strYoutube.slice(-11)}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
                       </div>
                     </Tabs.Content>
@@ -131,11 +197,11 @@ function Meal() {
                     <div className="space-y-4">
                       <h2 className="text-2xl">Extra infos</h2>
                       <div className="space-x-2">
-                        <Link to={`/category/${mealData.strCategory}`}>
-                          <Button className="bg-primary text-white hover:bg-secondary">Category : {mealData.strCategory}</Button>
-                        </Link>
                         <Link to={`/area/${mealData.strArea}`}>
                           <Button className="bg-primary text-white hover:bg-secondary">Area : {mealData.strArea}</Button>
+                        </Link>
+                        <Link to={`/category/${mealData.strCategory}`}>
+                          <Button className="bg-primary text-white hover:bg-secondary">Category : {mealData.strCategory}</Button>
                         </Link>
                       </div>
                     </div>
