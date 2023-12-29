@@ -45,11 +45,11 @@ export default function Header() {
     <>
       <header className='grid grid-cols-2 sm:grid-cols-header w-full p-4 border-b'>
         <Link className="flex items-center justify-start space-x-2" to="/">
-          <img src="/favicon/favicon.ico" alt="Logo d'un cerveau vu du haut" className="h-8" />
+          <img src="/favicon/favicon.svg" alt="Logo d'un cerveau vu du haut" className="h-8" />
           <Heading as="h2" size="5" className="h1">Get your Meal</Heading>
         </Link>
         <nav className="items-center justify-center space-x-4 hidden sm:flex text-base font-medium">
-          <Link to="/" className="text-primary hover:text-secondary text-md">Home</Link>
+          <Link to="/" className="text-primary-dark hover:text-primary text-md">Home</Link>
           {
             isLoading ? (
               <>
@@ -58,11 +58,11 @@ export default function Header() {
               </>
             ) : (
               <>
-                <div className="flex items-center flex-row text-primary hover:text-secondary space-x-2 text-base">
+                <div className="flex items-center flex-row text-primary-dark hover:text-secondary space-x-2 text-base">
                   <p>Area</p>
                   <CaretDownIcon />
                 </div>
-                <div className="flex items-center flex-row text-primary hover:text-secondary space-x-2 text-base">
+                <div className="flex items-center flex-row text-primary-dark hover:text-secondary space-x-2 text-base">
                   <p>Category</p>
                   <CaretDownIcon />
                 </div>
@@ -72,7 +72,7 @@ export default function Header() {
         </nav>
         <div className='items-center justify-end space-x-4 flex'>
           <DarkMode />
-          <Link to={`/meal/${randomMeal?.strMeal}`} className="text-primary hover:text-secondary">
+          <Link to={`/meal/${randomMeal?.strMeal}`} className="text-primary-dark hover:text-primary">
             <Button color="orange" variant="soft">Random Meal</Button>
           </Link>
         </div>

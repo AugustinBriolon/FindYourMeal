@@ -13,7 +13,7 @@ export default function DropDownMenu<T>({ name, items, label }: DropDownMenuProp
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <Button variant="soft" className="text-primary hover:text-secondary  p-0 text-base">
+        <Button variant="soft" className="text-primary-dark hover:text-primary  p-0 text-base">
           {name}
           <CaretDownIcon />
         </Button>

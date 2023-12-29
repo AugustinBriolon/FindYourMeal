@@ -22,7 +22,7 @@ export default function DarkMode() {
   const icon = darkMode ? <SunIcon className="w-auto h-18" color="#ec4e20" /> : <MoonIcon className="w-auto h-18" color="#ec4e20" />;
 
   return (
-    <IconButton variant="ghost" onClick={handleDarkMode} className="hover:bg-inherit">
+    <IconButton variant="ghost" onClick={handleDarkMode} className="hover:bg-inherit" aria-label="DarkMode">
       {icon}
     </IconButton>
   )
