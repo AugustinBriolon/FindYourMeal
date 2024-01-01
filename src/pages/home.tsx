@@ -136,9 +136,9 @@ const Home: React.FC = () => {
                   </Text>
                 </Card>
               ))
-            ) : meals.length === 0 ? (
+            ) : meals === null ? (
               <div className="text-center text-primary py-2">
-                <p>No meals found</p>
+                <p>No meals available at the moment... we're working on it !</p>
               </div>
             ) : (
               meals.map((meal) => (
