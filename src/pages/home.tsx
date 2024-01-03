@@ -86,7 +86,7 @@ const Home: React.FC = () => {
   return (
     <section className="flex flex-col items-center justify-start sm:h-screen-header h-list-header w-full space-y-4 p-4 pt-12 relative">
       <button onClick={handleClear}>
-        <Heading className="title3d text-6xl text-center">Get your meal</Heading>
+        <Heading className="title3d text-6xl text-center">Find Your meal</Heading>
       </button>
       <div className='w-3/4 md:w-1/2 flex flex-col items-center justify-center space-y-2 relative'>
         <TextField.Root size="3" className="w-full">
