@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Heading, Button } from "@radix-ui/themes"
-import { CaretDownIcon } from "@radix-ui/react-icons";
+import { Heading, Button, IconButton } from "@radix-ui/themes"
+import { CaretDownIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 
 import { getAllAreas, getAllCategories, getRandomMeal } from "../services/mealApi";
 import DropDownMenu from "./DropDownMenu";
@@ -46,10 +46,10 @@ export default function Header() {
       <header className='grid grid-cols-2 sm:grid-cols-header w-full p-4 border-b'>
         <Link className="flex items-center justify-start space-x-2" to="/">
           <img src="/favicon/favicon.svg" alt="Logo d'un cerveau vu du haut" className="h-8" />
-          <Heading as="h2" size="5" className="h1">Find Your Meal</Heading>
+          <Heading as="h2" size="5">Find Your Meal</Heading>
         </Link>
         <nav className="items-center justify-center space-x-4 hidden sm:flex text-base font-medium">
-          <Link to="/" className="text-primary-dark hover:text-primary text-md">Home</Link>
+          <Link to="/" className="text-primary hover:text-primary-dark text-md">Home</Link>
           {
             isLoading ? (
               <>
@@ -71,6 +71,11 @@ export default function Header() {
           }
         </nav>
         <div className='items-center justify-end space-x-4 flex'>
+          <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
+            <a href="https://github.com/AugustinBriolon/MentalMath" target="_blank">
+              <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
+            </a>
+          </IconButton>
           <DarkMode />
           <Link to={`/meal/${randomMeal?.strMeal}`} className="text-primary-dark hover:text-primary">
             <Button color="orange" variant="soft">Random Meal</Button>

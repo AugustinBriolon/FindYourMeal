@@ -30,7 +30,7 @@ export default {
         medium: '18px',
       },
       gridTemplateColumns: {
-        'header': '180px 1fr 180px',
+        'header': '200px 1fr 200px',
         'items': 'repeat(auto-fill, minmax(100px, 1fr))',
         'list': 'repeat(auto-fill, minmax(150px, 1fr))',
       },
