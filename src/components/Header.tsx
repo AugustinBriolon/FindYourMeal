@@ -72,7 +72,7 @@ export default function Header() {
         </nav>
         <div className='items-center justify-end space-x-4 flex'>
           <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
-            <a href="https://github.com/AugustinBriolon/MentalMath" target="_blank">
+            <a href="https://github.com/AugustinBriolon/FindYourMeal" target="_blank">
               <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
             </a>
           </IconButton>
