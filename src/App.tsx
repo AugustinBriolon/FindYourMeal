@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 
 import "./index.css";
 import Header from "./components/Header";
+import BuyMeCoffee from "./components/BuyMeCoffee";
 import Home from "./pages/home";
 import Meal from "./pages/meal";
 import Area from "./pages/area";
@@ -24,6 +25,7 @@ export default function App() {
       <div className="max-w-default mx-auto">
         <Header />
         <Outlet />
+        <BuyMeCoffee />
       </div>
     );
   }
