@@ -70,22 +70,34 @@ export default function Header() {
             )
           }
         </nav>
-        <div className='items-center justify-end space-x-4 flex'>
+        <div className="flex space-x-4 items-center justify-end">
+          <div className='hidden sm:flex items-center justify-end space-x-4'>
+            <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
+              <a href="https://github.com/AugustinBriolon/FindYourMeal" target="_blank">
+                <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
+              </a>
+            </IconButton>
+            <DarkMode />
+          </div>
+          <Link to={`/meal/${randomMeal?.strMeal}`} className="text-primary-dark hover:text-primary">
+            <Button color="orange" variant="soft">Random Meal</Button>
+          </Link>
+        </div>
+      </header>
+      <nav className="flex sm:hidden items-center justify-between border-b px-4 py-2">
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="text-primary hover:text-secondary">Home</Link>
+          <DropDownMenu name="Area" items={areas} label="strArea" />
+          <DropDownMenu name="Category" items={categories} label="strCategory" />
+        </div>
+        <div className='flex sm:hidden items-center justify-end space-x-4'>
           <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
             <a href="https://github.com/AugustinBriolon/FindYourMeal" target="_blank">
               <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
             </a>
           </IconButton>
           <DarkMode />
-          <Link to={`/meal/${randomMeal?.strMeal}`} className="text-primary-dark hover:text-primary">
-            <Button color="orange" variant="soft">Random Meal</Button>
-          </Link>
         </div>
-      </header>
-      <nav className="flex sm:hidden items-center justify-start border-b px-4 py-2 space-x-4">
-        <Link to="/" className="text-primary hover:text-secondary">Home</Link>
-        <DropDownMenu name="Area" items={areas} label="strArea" />
-        <DropDownMenu name="Category" items={categories} label="strCategory" />
       </nav>
     </>
   )
