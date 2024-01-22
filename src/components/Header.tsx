@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Heading, Button, IconButton } from "@radix-ui/themes"
-import { CaretDownIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { CaretDownIcon, GitHubLogoIcon, AvatarIcon } from "@radix-ui/react-icons";
 
 import { getAllAreas, getAllCategories, getRandomMeal } from "../services/mealApi";
 import DropDownMenu from "./DropDownMenu";
@@ -73,6 +73,11 @@ export default function Header() {
         <div className="flex space-x-4 items-center justify-end">
           <div className='hidden sm:flex items-center justify-end space-x-4'>
             <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
+              <a href="https://august1.dev/" target="_blank">
+                <AvatarIcon className="w-auto h-18" color="#ec4e20" />
+              </a>
+            </IconButton>
+            <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
               <a href="https://github.com/AugustinBriolon/FindYourMeal" target="_blank">
                 <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
               </a>
@@ -91,6 +96,11 @@ export default function Header() {
           <DropDownMenu name="Category" items={categories} label="strCategory" />
         </div>
         <div className='flex sm:hidden items-center justify-end space-x-4'>
+          <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
+            <a href="https://august1.dev/" target="_blank">
+              <AvatarIcon className="w-auto h-18" color="#ec4e20" />
+            </a>
+          </IconButton>
           <IconButton variant="ghost" className="hover:bg-inherit" aria-label="GitHub Repository">
             <a href="https://github.com/AugustinBriolon/FindYourMeal" target="_blank">
               <GitHubLogoIcon className="w-auto h-18" color="#ec4e20" />
